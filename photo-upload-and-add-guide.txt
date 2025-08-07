@@ -1,0 +1,50 @@
+Step-by-Step Guide to Upload Photos and Add to Your Birthday Gallery
+
+Step 1: Upload Photos to Imgur (Free Image Hosting)
+---------------------------------------------------
+1. Open your web browser and go to https://imgur.com/upload
+2. Click on "Choose Photo/Video" and select the photos you want to upload from your computer.
+3. Wait for the upload to complete.
+4. After upload, click on each photo to open it.
+5. Right-click on the photo and select "Open image in new tab" or "Copy image address" to get the direct URL of the image.
+   - The URL should end with an image extension like .jpg, .png, etc.
+6. Copy this direct image URL for each photo.
+
+Step 2: Prepare URLs for Gallery
+--------------------------------
+For each photo, you need two URLs:
+- Thumbnail URL (smaller size for grid view)
+- Full-size URL (larger size for lightbox view)
+
+If your hosting service does not provide different sizes, you can use the same URL for both.
+
+Step 3: Update gallery-images.ts File
+-------------------------------------
+1. Open the file `client/src/data/gallery-images.ts` in your code editor.
+2. Scroll to the section where new images can be added (look for entries with placeholder URLs like "YOUR_THUMBNAIL_URL_HERE_1").
+3. Replace the placeholder URLs with your copied URLs.
+4. Add a meaningful caption for each photo.
+
+Example:
+{
+  id: 10,
+  src: "https://i.imgur.com/your-thumbnail.jpg",
+  fullSrc: "https://i.imgur.com/your-fullsize.jpg",
+  caption: "Your caption here"
+}
+
+Step 4: Save and Test
+---------------------
+1. Save the file.
+2. Run your project or refresh the gallery page.
+3. Your new photos should appear in the gallery.
+
+Additional Tips:
+----------------
+- Use similar aspect ratios for consistent gallery appearance.
+- Keep captions short and meaningful.
+- Test with one photo first before adding many.
+
+If you want, I can help you update the gallery-images.ts file once you provide the URLs.
+
+Happy photo adding!

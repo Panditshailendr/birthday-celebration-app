@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Custom romantic colors */
+  --rose-deep: hsl(340, 82%, 52%);
+  --burgundy: hsl(345, 77%, 32%);
+  --rose-gold: hsl(328, 73%, 84%);
+  --soft-pink: hsl(340, 67%, 94%);
+  --warm-white: hsl(45, 100%, 97%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased overflow-x-hidden;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, hsl(239, 42%, 15%) 0%, hsl(225, 42%, 19%) 50%, hsl(0, 0%, 0%) 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .font-dancing {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .font-vibes {
+    font-family: 'Great Vibes', cursive;
+  }
+
+  .romantic-gradient {
+    background: linear-gradient(135deg, hsl(239, 42%, 15%) 0%, hsl(225, 42%, 19%) 50%, hsl(0, 0%, 0%) 100%);
+  }
+
+  .floating-hearts {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(100vh) rotate(0deg); 
+      opacity: 0; 
+    }
+    10% { 
+      opacity: 1; 
+    }
+    90% { 
+      opacity: 1; 
+    }
+    100% { 
+      transform: translateY(-100px) rotate(360deg); 
+      opacity: 0; 
+    }
+  }
+
+  .timeline-item { 
+    opacity: 0; 
+    transform: translateX(-50px); 
+  }
+
+  .memory-jar-note { 
+    transform: scale(0) rotate(10deg); 
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .memory-jar-note.revealed { 
+    transform: scale(1) rotate(0deg); 
+  }
+
+  .gift-box {
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .gift-box.opened {
+    transform: rotateY(180deg);
+  }
+
+  .countdown-digit {
+    background: linear-gradient(45deg, var(--rose-deep), var(--rose-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lightbox {
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .rose-deep {
+    color: var(--rose-deep);
+  }
+
+  .bg-rose-deep {
+    background-color: var(--rose-deep);
+  }
+
+  .text-rose-deep {
+    color: var(--rose-deep);
+  }
+
+  .bg-burgundy {
+    background-color: var(--burgundy);
+  }
+
+  .text-burgundy {
+    color: var(--burgundy);
+  }
+
+  .text-rose-gold {
+    color: var(--rose-gold);
+  }
+
+  .bg-rose-gold {
+    background-color: var(--rose-gold);
+  }
+
+  .text-soft-pink {
+    color: var(--soft-pink);
+  }
+
+  .bg-soft-pink {
+    background-color: var(--soft-pink);
+  }
+
+  .text-warm-white {
+    color: var(--warm-white);
+  }
+
+  .bg-warm-white {
+    background-color: var(--warm-white);
+  }
+}
