@@ -10,4 +10,9 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
   },
+  resolve: {
+    alias: {
+      "@": path.resolve(import.meta.dirname, "client/src"),
+    },
+  },
 });
